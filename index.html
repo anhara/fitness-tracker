@@ -266,7 +266,132 @@ window.onload = loadData;
 </div>
 
 <!-- =================== THURSDAY =================== -->
-<!-- ... and so on for Thu, Fri, Sat, Sun -->
+<div id="thursday" class="day">
+    <div class="card">
+        <h3>Climbing + Upper Body</h3>
+        Climbing: <input placeholder="1–1.5 h" id="thu_climb" oninput="saveData()">
+
+        Row (Bar / Dumbbell)
+        <input placeholder="Set 1" id="thu_row_1" oninput="saveData()">
+        <input placeholder="Set 2" id="thu_row_2" oninput="saveData()">
+        <input placeholder="Set 3" id="thu_row_3" oninput="saveData()">
+
+        Face Pull
+        <input placeholder="Set 1" id="thu_face_1" oninput="saveData()">
+        <input placeholder="Set 2" id="thu_face_2" oninput="saveData()">
+        <input placeholder="Set 3" id="thu_face_3" oninput="saveData()">
+
+        Biceps Curl
+        <input placeholder="Set 1" id="thu_bicep_1" oninput="saveData()">
+        <input placeholder="Set 2" id="thu_bicep_2" oninput="saveData()">
+        <input placeholder="Set 3" id="thu_bicep_3" oninput="saveData()">
+
+        Triceps Extension
+        <input placeholder="Set 1" id="thu_tri_1" oninput="saveData()">
+        <input placeholder="Set 2" id="thu_tri_2" oninput="saveData()">
+        <input placeholder="Set 3" id="thu_tri_3" oninput="saveData()">
+    </div>
+
+    <div class="card">
+        <h3>Cardio</h3>
+        Stairs: <input placeholder="45–60 min" id="thu_cardio" oninput="saveData()">
+    </div>
+
+    <div class="card">
+        <h3>Food / Notes</h3>
+        <textarea id="thu_food" oninput="saveData()"></textarea>
+    </div>
+
+    <button onclick="clearDay('thursday')">Clear Day</button>
+</div>
+
+<!-- =================== FRIDAY =================== -->
+<div id="friday" class="day">
+    <div class="card">
+        <h3>Legs / Glutes (Glute / Hamstring Focus)</h3>
+        Hip Thrust
+        <input placeholder="Set 1" id="fri_hip_1" oninput="saveData()">
+        <input placeholder="Set 2" id="fri_hip_2" oninput="saveData()">
+        <input placeholder="Set 3" id="fri_hip_3" oninput="saveData()">
+        <input placeholder="Set 4" id="fri_hip_4" oninput="saveData()">
+
+        Seated Leg Curl
+        <input placeholder="Set 1" id="fri_legcurl_1" oninput="saveData()">
+        <input placeholder="Set 2" id="fri_legcurl_2" oninput="saveData()">
+        <input placeholder="Set 3" id="fri_legcurl_3" oninput="saveData()">
+
+        Standing Calf Raise
+        <input placeholder="Set 1" id="fri_calf_1" oninput="saveData()">
+        <input placeholder="Set 2" id="fri_calf_2" oninput="saveData()">
+        <input placeholder="Set 3" id="fri_calf_3" oninput="saveData()">
+        <input placeholder="Set 4" id="fri_calf_4" oninput="saveData()">
+
+        Standing Cable Glute Kickbacks
+        <input placeholder="Set 1" id="fri_kick_1" oninput="saveData()">
+        <input placeholder="Set 2" id="fri_kick_2" oninput="saveData()">
+        <input placeholder="Set 3" id="fri_kick_3" oninput="saveData()">
+
+        Dumbbell Lunge
+        <input placeholder="Set 1" id="fri_lunge_1" oninput="saveData()">
+        <input placeholder="Set 2" id="fri_lunge_2" oninput="saveData()">
+        <input placeholder="Set 3" id="fri_lunge_3" oninput="saveData()">
+
+        Core / Glute Optional
+        <input placeholder="Plank / Side Plank" id="fri_core" oninput="saveData()">
+    </div>
+
+    <div class="card">
+        <h3>Cardio</h3>
+        Stairs: <input placeholder="0–10 min" id="fri_cardio" oninput="saveData()">
+    </div>
+
+    <div class="card">
+        <h3>Food / Notes</h3>
+        <textarea id="fri_food" oninput="saveData()"></textarea>
+    </div>
+
+    <button onclick="clearDay('friday')">Clear Day</button>
+</div>
+
+<!-- =================== SATURDAY =================== -->
+<div id="saturday" class="day">
+    <div class="card">
+        <h3>Active Recovery / Light Climbing</h3>
+        <input placeholder="Activity e.g., walking, yoga, foam rolling, light climbing" id="sat_activity" oninput="saveData()">
+    </div>
+
+    <div class="card">
+        <h3>Cardio</h3>
+        Optional Walk / Stairs: <input placeholder="0–60 min" id="sat_cardio" oninput="saveData()">
+    </div>
+
+    <div class="card">
+        <h3>Food / Notes</h3>
+        <textarea id="sat_food" oninput="saveData()"></textarea>
+    </div>
+
+    <button onclick="clearDay('saturday')">Clear Day</button>
+</div>
+
+<!-- =================== SUNDAY =================== -->
+<div id="sunday" class="day">
+    <div class="card">
+        <h3>Rest Day</h3>
+        <input placeholder="Rest, sleep, recovery notes" id="sun_notes" oninput="saveData()">
+    </div>
+
+    <div class="card">
+        <h3>Cardio</h3>
+        Rest: <input placeholder="0 min" id="sun_cardio" oninput="saveData()">
+    </div>
+
+    <div class="card">
+        <h3>Food / Notes</h3>
+        <textarea id="sun_food" oninput="saveData()"></textarea>
+    </div>
+
+    <button onclick="clearDay('sunday')">Clear Day</button>
+</div>
 
 </body>
 </html>
