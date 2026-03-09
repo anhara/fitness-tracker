@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fitness Tracker</title>
+<title>Training Tracker</title>
 
 <style>
-/* ---- GENERAL ---- */
 body {
-    font-family: 'Arial', sans-serif;
-    background: #fff0f5; /* soft lavender/pink */
+    font-family: Arial, sans-serif;
+    background: #fff0f5; /* soft pink/vanilla */
     color: #333;
     margin: 0;
     padding: 10px;
@@ -17,10 +16,10 @@ body {
 
 h1 {
     text-align: center;
-    color: #d147a3; /* deeper pink for headers */
+    color: #d147a3; /* deep pink */
 }
 
-/* ---- TABS ---- */
+/* Tabs */
 .tabs {
     display: flex;
     overflow-x: auto;
@@ -29,7 +28,7 @@ h1 {
 
 .tab {
     padding: 10px 15px;
-    background: #f4c2d7; /* soft pink */
+    background: #f4c2d7;
     margin-right: 6px;
     border-radius: 10px;
     cursor: pointer;
@@ -47,38 +46,33 @@ h1 {
     color: white;
 }
 
-/* ---- DAY CARDS ---- */
-.day {
-    display: none;
-}
-
-.day.active {
-    display: block;
-}
+/* Day cards */
+.day { display: none; }
+.day.active { display: block; }
 
 .card {
-    background: #ffe4f1; /* light pink cream */
+    background: #ffe4f1; 
     padding: 15px;
     border-radius: 12px;
     margin-bottom: 15px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
-/* ---- INPUTS ---- */
+/* Inputs */
 input, textarea {
     width: 100%;
-    padding: 8px;
-    border-radius: 8px;
+    padding: 6px;
+    border-radius: 6px;
     border: 1px solid #f4c2d7;
-    margin-top: 5px;
+    margin-top: 4px;
     font-size: 1rem;
 }
 
 textarea {
-    height: 80px;
+    height: 70px;
 }
 
-/* ---- BUTTONS ---- */
+/* Buttons */
 button {
     padding: 10px 15px;
     border: none;
@@ -88,27 +82,28 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s;
+    margin-top: 8px;
 }
 
 button:hover {
     background: #e55fae;
 }
 </style>
-
 </head>
+
 <body>
 
-<h1>Mi Entrenamiento</h1>
+<h1>My Training Tracker</h1>
 
-<!-- TABS -->
+<!-- Tabs -->
 <div class="tabs">
-    <div class="tab active" onclick="openDay('lunes', this)">L</div>
-    <div class="tab" onclick="openDay('martes', this)">M</div>
-    <div class="tab" onclick="openDay('miercoles', this)">X</div>
-    <div class="tab" onclick="openDay('jueves', this)">J</div>
-    <div class="tab" onclick="openDay('viernes', this)">V</div>
-    <div class="tab" onclick="openDay('sabado', this)">S</div>
-    <div class="tab" onclick="openDay('domingo', this)">D</div>
+    <div class="tab active" onclick="openDay('monday', this)">Mon</div>
+    <div class="tab" onclick="openDay('tuesday', this)">Tue</div>
+    <div class="tab" onclick="openDay('wednesday', this)">Wed</div>
+    <div class="tab" onclick="openDay('thursday', this)">Thu</div>
+    <div class="tab" onclick="openDay('friday', this)">Fri</div>
+    <div class="tab" onclick="openDay('saturday', this)">Sat</div>
+    <div class="tab" onclick="openDay('sunday', this)">Sun</div>
 </div>
 
 <script>
@@ -130,7 +125,6 @@ function loadData(){
 function openDay(day, el){
     document.querySelectorAll(".day").forEach(d => d.classList.remove("active"));
     document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-
     document.getElementById(day).classList.add("active");
     el.classList.add("active");
 }
@@ -144,143 +138,185 @@ function clearDay(day){
     });
 }
 
-// Load saved data on page load
 window.onload = loadData;
 </script>
 
-<!-- ===== DIAS ===== -->
+<!-- ===== DAYS ===== -->
 
-<!-- LUNES -->
-<div id="lunes" class="day active">
+<!-- MONDAY -->
+<div id="monday" class="day active">
     <div class="card">
-        <h3>Pierna / Glúteo</h3>
-        Hip Thrust <input id="lunes_hip" oninput="saveData()">
-        Leg Press <input id="lunes_press" oninput="saveData()">
-        Hack Squat <input id="lunes_hack" oninput="saveData()">
-        Barbell Squat <input id="lunes_squat" oninput="saveData()">
-        Hip Abduction <input id="lunes_abduction" oninput="saveData()">
-        Calf Raise <input id="lunes_calf" oninput="saveData()">
+        <h3>Legs / Glutes</h3>
+        Hip Thrust
+        <input placeholder="Set 1 - Weight x Reps" id="mon_hip_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="mon_hip_2" oninput="saveData()">
+        <input placeholder="Set 3 - Weight x Reps" id="mon_hip_3" oninput="saveData()">
+
+        Leg Press
+        <input placeholder="Set 1 - Weight x Reps" id="mon_press_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="mon_press_2" oninput="saveData()">
+        <input placeholder="Set 3 - Weight x Reps" id="mon_press_3" oninput="saveData()">
     </div>
 
     <div class="card">
         <h3>Cardio</h3>
-        Escaleras (min) <input id="lunes_cardio" oninput="saveData()">
+        Stairs (min) <input id="mon_cardio" oninput="saveData()">
     </div>
 
     <div class="card">
-        <h3>Comida</h3>
-        <textarea id="lunes_food" oninput="saveData()"></textarea>
+        <h3>Food / Notes</h3>
+        <textarea id="mon_food" oninput="saveData()"></textarea>
     </div>
 
-    <button onclick="clearDay('lunes')">Limpiar Día</button>
+    <button onclick="clearDay('monday')">Clear Day</button>
 </div>
 
-<!-- MARTES -->
-<div id="martes" class="day">
+<!-- TUESDAY -->
+<div id="tuesday" class="day">
     <div class="card">
-        <h3>Espalda / Brazos</h3>
-        Remo <input id="martes_row" oninput="saveData()">
-        Face Pull <input id="martes_face" oninput="saveData()">
-        Curl Bíceps <input id="martes_curl" oninput="saveData()">
-        Tríceps <input id="martes_tri" oninput="saveData()">
+        <h3>Back / Arms</h3>
+        Row
+        <input placeholder="Set 1 - Weight x Reps" id="tue_row_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="tue_row_2" oninput="saveData()">
+        <input placeholder="Set 3 - Weight x Reps" id="tue_row_3" oninput="saveData()">
+
+        Face Pull
+        <input placeholder="Set 1 - Weight x Reps" id="tue_face_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="tue_face_2" oninput="saveData()">
+        <input placeholder="Set 3 - Weight x Reps" id="tue_face_3" oninput="saveData()">
+
+        Biceps Curl
+        <input placeholder="Set 1 - Weight x Reps" id="tue_biceps_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="tue_biceps_2" oninput="saveData()">
+        <input placeholder="Set 3 - Weight x Reps" id="tue_biceps_3" oninput="saveData()">
     </div>
+
     <div class="card">
         <h3>Cardio</h3>
-        Escaleras <input id="martes_cardio" oninput="saveData()">
+        Stairs <input id="tue_cardio" oninput="saveData()">
     </div>
+
     <div class="card">
-        <h3>Comida</h3>
-        <textarea id="martes_food" oninput="saveData()"></textarea>
+        <h3>Food / Notes</h3>
+        <textarea id="tue_food" oninput="saveData()"></textarea>
     </div>
-    <button onclick="clearDay('martes')">Limpiar Día</button>
+
+    <button onclick="clearDay('tuesday')">Clear Day</button>
 </div>
 
-<!-- MIÉRCOLES -->
-<div id="miercoles" class="day">
+<!-- WEDNESDAY -->
+<div id="wednesday" class="day">
     <div class="card">
-        <h3>Pierna Posterior</h3>
-        Hip Thrust <input id="miercoles_hip" oninput="saveData()">
-        Romanian Deadlift <input id="miercoles_rdl" oninput="saveData()">
-        Bulgarian <input id="miercoles_bulgarian" oninput="saveData()">
-        Leg Extension <input id="miercoles_extension" oninput="saveData()">
-        Back Extension <input id="miercoles_back" oninput="saveData()">
+        <h3>Legs / Posterior Chain</h3>
+        Hip Thrust
+        <input placeholder="Set 1 - Weight x Reps" id="wed_hip_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="wed_hip_2" oninput="saveData()">
+        <input placeholder="Set 3 - Weight x Reps" id="wed_hip_3" oninput="saveData()">
+
+        Romanian Deadlift
+        <input placeholder="Set 1 - Weight x Reps" id="wed_rdl_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="wed_rdl_2" oninput="saveData()">
+        <input placeholder="Set 3 - Weight x Reps" id="wed_rdl_3" oninput="saveData()">
     </div>
+
     <div class="card">
         <h3>Cardio</h3>
-        Escaleras <input id="miercoles_cardio" oninput="saveData()">
+        Stairs <input id="wed_cardio" oninput="saveData()">
     </div>
+
     <div class="card">
-        <h3>Comida</h3>
-        <textarea id="miercoles_food" oninput="saveData()"></textarea>
+        <h3>Food / Notes</h3>
+        <textarea id="wed_food" oninput="saveData()"></textarea>
     </div>
-    <button onclick="clearDay('miercoles')">Limpiar Día</button>
+
+    <button onclick="clearDay('wednesday')">Clear Day</button>
 </div>
 
-<!-- JUEVES -->
-<div id="jueves" class="day">
+<!-- THURSDAY -->
+<div id="thursday" class="day">
     <div class="card">
-        <h3>Escalada / Espalda</h3>
-        Remo <input id="jueves_row" oninput="saveData()">
-        Face Pull <input id="jueves_face" oninput="saveData()">
-        Curl <input id="jueves_curl" oninput="saveData()">
-        Tríceps <input id="jueves_tri" oninput="saveData()">
+        <h3>Climbing / Back</h3>
+        Row
+        <input placeholder="Set 1 - Weight x Reps" id="thu_row_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="thu_row_2" oninput="saveData()">
+
+        Face Pull
+        <input placeholder="Set 1 - Weight x Reps" id="thu_face_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="thu_face_2" oninput="saveData()">
+
+        Triceps
+        <input placeholder="Set 1 - Weight x Reps" id="thu_tri_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="thu_tri_2" oninput="saveData()">
     </div>
+
     <div class="card">
-        <h3>Cardio Escaleras</h3>
-        <input id="jueves_cardio" oninput="saveData()">
+        <h3>Cardio / Stairs</h3>
+        <input id="thu_cardio" oninput="saveData()">
     </div>
+
     <div class="card">
-        <h3>Comida</h3>
-        <textarea id="jueves_food" oninput="saveData()"></textarea>
+        <h3>Food / Notes</h3>
+        <textarea id="thu_food" oninput="saveData()"></textarea>
     </div>
-    <button onclick="clearDay('jueves')">Limpiar Día</button>
+
+    <button onclick="clearDay('thursday')">Clear Day</button>
 </div>
 
-<!-- VIERNES -->
-<div id="viernes" class="day">
+<!-- FRIDAY -->
+<div id="friday" class="day">
     <div class="card">
-        <h3>Pierna / Glúteo</h3>
-        Hip Thrust <input id="viernes_hip" oninput="saveData()">
-        Leg Curl <input id="viernes_curl" oninput="saveData()">
-        Calf Raise <input id="viernes_calf" oninput="saveData()">
-        Glute Kickback <input id="viernes_kick" oninput="saveData()">
-        Lunges <input id="viernes_lunge" oninput="saveData()">
+        <h3>Legs / Glutes</h3>
+        Hip Thrust
+        <input placeholder="Set 1 - Weight x Reps" id="fri_hip_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="fri_hip_2" oninput="saveData()">
+        <input placeholder="Set 3 - Weight x Reps" id="fri_hip_3" oninput="saveData()">
+
+        Lunges
+        <input placeholder="Set 1 - Weight x Reps" id="fri_lunge_1" oninput="saveData()">
+        <input placeholder="Set 2 - Weight x Reps" id="fri_lunge_2" oninput="saveData()">
     </div>
+
     <div class="card">
         <h3>Cardio</h3>
-        <input id="viernes_cardio" oninput="saveData()">
+        <input id="fri_cardio" oninput="saveData()">
     </div>
+
     <div class="card">
-        <h3>Comida</h3>
-        <textarea id="viernes_food" oninput="saveData()"></textarea>
+        <h3>Food / Notes</h3>
+        <textarea id="fri_food" oninput="saveData()"></textarea>
     </div>
-    <button onclick="clearDay('viernes')">Limpiar Día</button>
+
+    <button onclick="clearDay('friday')">Clear Day</button>
 </div>
 
-<!-- SÁBADO -->
-<div id="sabado" class="day">
+<!-- SATURDAY -->
+<div id="saturday" class="day">
     <div class="card">
-        <h3>Actividad</h3>
-        <textarea id="sabado_activity" oninput="saveData()"></textarea>
+        <h3>Activity</h3>
+        <textarea id="sat_activity" oninput="saveData()"></textarea>
     </div>
+
     <div class="card">
-        <h3>Comida</h3>
-        <textarea id="sabado_food" oninput="saveData()"></textarea>
+        <h3>Food / Notes</h3>
+        <textarea id="sat_food" oninput="saveData()"></textarea>
     </div>
-    <button onclick="clearDay('sabado')">Limpiar Día</button>
+
+    <button onclick="clearDay('saturday')">Clear Day</button>
 </div>
 
-<!-- DOMINGO -->
-<div id="domingo" class="day">
+<!-- SUNDAY -->
+<div id="sunday" class="day">
     <div class="card">
-        <h3>Descanso / Notas</h3>
-        <textarea id="domingo_notes" oninput="saveData()"></textarea>
+        <h3>Rest / Notes</h3>
+        <textarea id="sun_notes" oninput="saveData()"></textarea>
     </div>
+
     <div class="card">
-        <h3>Comida</h3>
-        <textarea id="domingo_food" oninput="saveData()"></textarea>
+        <h3>Food / Notes</h3>
+        <textarea id="sun_food" oninput="saveData()"></textarea>
     </div>
-    <button onclick="clearDay('domingo')">Limpiar Día</button>
+
+    <button onclick="clearDay('sunday')">Clear Day</button>
 </div>
 
 </body>
