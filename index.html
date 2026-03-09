@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Training Tracker</title>
+
+<style>
+body{font-family:Arial;background:#111;color:white;margin:0;padding:15px}
+h1{text-align:center}
+.tabs{display:flex;overflow-x:auto;margin-bottom:10px}
+.tab{background:#333;padding:10px;margin-right:5px;border-radius:6px;cursor:pointer}
+.active{background:#2ecc71}
+.day{display:none}
+.day.active{display:block}
+.card{background:#1f1f1f;padding:15px;border-radius:10px;margin-bottom:10px}
+input,textarea{width:100%;padding:6px;border-radius:6px;border:none;margin-top:4px}
+textarea{height:80px}
+button{background:#e74c3c;border:none;padding:8px;border-radius:6px;color:white}
+</style>
+
+<script>
+
+function save(){
+document.querySelectorAll("input,textarea").forEach(e=>{
+localStorage.setItem(e.id,e.value)
+})
+}
+
+function load(){
+document.querySelectorAll("input,textarea").forEach(e=>{
+let v=localStorage.getItem(e.id)
+if(v)e.value=v
+})
+}
+
+function openDay(d){
+document.querySelectorAll(".day").forEach(x=>x.classList.remove("active"))
+document.getElementById(d).classList.add("active")
+}
+
+window.onload=load
+
+</script>
+</head>
+
+<body>
+
+<h1>My Training</h1>
+
+<div class="tabs">
+<div class="tab" onclick="openDay('mon')">Mon</div>
+<div class="tab" onclick="openDay('tue')">Tue</div>
+<div class="tab" onclick="openDay('wed')">Wed</div>
+<div class="tab" onclick="openDay('thu')">Thu</div>
+<div class="tab" onclick="openDay('fri')">Fri</div>
+<div class="tab" onclick="openDay('sat')">Sat</div>
+<div class="tab" onclick="openDay('sun')">Sun</div>
+</div>
+
+<div id="mon" class="day active">
+<div class="card">
+Hip Thrust<input id="m1" oninput="save()">
+Leg Press<input id="m2" oninput="save()">
+Hack Squat<input id="m3" oninput="save()">
+Barbell Squat<input id="m4" oninput="save()">
+</div>
+<div class="card">
+Stairs (min)<input id="m5" oninput="save()">
+</div>
+<div class="card">
+Food<textarea id="m6" oninput="save()"></textarea>
+</div>
+</div>
+
+<div id="tue" class="day">
+<div class="card">
+Row<input id="t1" oninput="save()">
+Face Pull<input id="t2" oninput="save()">
+Biceps<input id="t3" oninput="save()">
+Triceps<input id="t4" oninput="save()">
+</div>
+<div class="card">
+Stairs<input id="t5" oninput="save()">
+</div>
+<div class="card">
+Food<textarea id="t6" oninput="save()"></textarea>
+</div>
+</div>
+
+</body>
+</html>
